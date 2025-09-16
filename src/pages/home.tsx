@@ -1,16 +1,11 @@
 import type React from "react";
 import { Link } from "react-router-dom";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-import "swiper/css/bundle";
 
-import img from "../assets/carusel.jpg";
-import img2 from "../assets/iphone.jpg";
-import img3 from "../assets/iphone2.png";
-import { useState } from "react";
 import TodayProductCard from "../components/products/SalesProduct";
 import CategoriesProduct from "../components/products/CategoriesProduct";
 import BestSellingProduct from "../components/products/BestSellingProduct";
+import { CarouselPlugin } from "@/components/carousel/Carousel";
+
 
 type DropdownItem = {
   id: number;
@@ -54,53 +49,32 @@ const HomeMenu: HomeNavigationMenu[] = [
 ];
 
 const Home: React.FC = () => {
-  const [activeMenu, setActiveMenu] = useState<number | null>(null);
-
-  const toggleDropdown = (id: number) => {
-    setActiveMenu(activeMenu === id ? null : id);
-  };
-
   return (
     <>
       <section className="w-full h-auto flex justify-center ">
+        {/* Left menu */}
         <div className="w-[217px] h-[440px] flex flex-col border-r border-r-gray-400">
           <nav>
             <ul className="mt-10">
               {HomeMenu.map((item, id) => (
-                <li key={item.id} className={`${HomeMenu.length === id ? 'mt-0' : 'mt-7'}`}>
+                <li
+                  key={item.id}
+                  className={`${HomeMenu.length === id ? "mt-0" : "mt-7"}`}
+                >
                   <Link to={item.link}>{item.title}</Link>
                 </li>
               ))}
             </ul>
           </nav>
         </div>
+
+        {/* Carousel */}
         <div className="w-[80%] h-[450px] flex justify-center items-center">
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            pagination={{ clickable: true }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            style={{
-              width: "100%",
-              height: "100%",
-              marginLeft: "20px",
-              marginTop: "80px",
-            }}
-          >
-            <SwiperSlide className="w-full h-[200px]">
-              <img src={img} alt="" className="w-full h-[400px]" />
-            </SwiperSlide>
-            <SwiperSlide className="w-full h-[200px]">
-              <img src={img2} alt="" className="w-full h-[400px]" />
-            </SwiperSlide>
-            <SwiperSlide className="w-full h-[200px]">
-              <img src={img3} alt="" className="w-full h-[400px]" />
-            </SwiperSlide>
-          </Swiper>
+          <CarouselPlugin />
         </div>
       </section>
+
+      {/* Other sections */}
       <TodayProductCard />
       <CategoriesProduct />
       <BestSellingProduct />
