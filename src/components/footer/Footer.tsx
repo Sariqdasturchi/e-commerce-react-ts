@@ -110,7 +110,7 @@ export default function Footer() {
                                     className="w-[34px] h-[34px]"
                                 />
                                 <div className="flex flex-col items-start leading-tight">
-                                    <p className="text-[10px] text-gray-400">GET IT ON</p>
+                                    <p className="text-[10px] text-gray-400">Download on the</p>
                                     <h3 className="text-sm font-semibold">App Store</h3>
                                 </div>
                             </button>
