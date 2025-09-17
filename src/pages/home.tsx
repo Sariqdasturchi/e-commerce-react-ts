@@ -5,6 +5,11 @@ import TodayProductCard from "../components/products/SalesProduct";
 import CategoriesProduct from "../components/products/CategoriesProduct";
 import BestSellingProduct from "../components/products/BestSellingProduct";
 import { CarouselPlugin } from "@/components/carousel/Carousel";
+import AdvertisementProduct from "@/components/advertisement/AdvertisementProduct";
+import OurProducts from "@/components/ourProducts/OurProducts";
+import FilterOurProduct from "@/components/ourProducts/FilterOurProduct";
+import Featured from "@/components/featured/Featured";
+import Footer from "@/components/footer/Footer";
 
 
 type DropdownItem = {
@@ -78,6 +83,15 @@ const Home: React.FC = () => {
       <TodayProductCard />
       <CategoriesProduct />
       <BestSellingProduct />
+      {/* Advertisement Section */}
+      <AdvertisementProduct />
+      {/* Our products */}
+      <OurProducts />
+      {/* FilterOurProduct */}
+      <FilterOurProduct />
+      {/* Featured */}
+      <Featured />
+      <Footer />
     </>
   );
 };

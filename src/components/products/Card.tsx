@@ -6,18 +6,19 @@ import { IoIosEye } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 
 type CardProps = {
-  id: number;
-  title: string;
-  image: any;
-  price: number;
-  rating: number;
-  discount: number;
-  sales: number;
-  cardHover: number | null;
-  setCardHover: React.Dispatch<React.SetStateAction<number | null>>;
+    id: number;
+    title: string;
+    image: any;
+    price: number;
+    rating: number;
+    discount: number;
+    sales?: number | string;
+    color?: string[];
+    cardHover: number | null;
+    setCardHover: React.Dispatch<React.SetStateAction<number | null>>;
 };
 
-const Card:React.FC<CardProps> = ({id, title, image, price, discount, rating, sales, setCardHover, cardHover}) => {
+const Card: React.FC<CardProps> = ({ id, title, image, price, discount, rating, sales = '', color = [], setCardHover, cardHover }) => {
     const isHovered = cardHover === id;
     return (
         <>
@@ -30,7 +31,18 @@ const Card:React.FC<CardProps> = ({id, title, image, price, discount, rating, sa
                         className='w-[250px] relative flex justify-center items-center bg-[#F5F5F5] rounded-lg p-4 mb-4'>
                         <img src={image} alt={title} className='w-[270px] h-[250px] object-contain mb-4' />
                         <div className='absolute top-2 left-2'>
-                            <span className='text-xs bg-red-500 text-white px-2 py-1 rounded-lg'>-{sales}%</span>
+                            {sales && (
+                                typeof sales === "number" ? (
+                                    <div className="bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-lg">
+                                        {sales}%
+                                    </div>
+                                ) : (
+                                    <div className="bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-lg">
+                                        {sales}
+                                    </div>
+                                )
+                            )}
+
                         </div>
                         {
                             isHovered && (
@@ -64,6 +76,20 @@ const Card:React.FC<CardProps> = ({id, title, image, price, discount, rating, sa
                         </div>
                         <div className='text-xs text-gray-500'>({rating})</div>
                     </div>
+                    {/* color product */}
+                    {color.length > 0 && (
+                        <div className="flex gap-2 mt-2">
+                            {color.map((c, idx) => (
+                                    <span
+                                        key={idx}
+                                        className="w-5 h-5 rounded-full border border-gray-300 cursor-pointer"
+                                        style={{ backgroundColor: c }}
+                                    ></span>
+                                ))}
+                        </div>
+                    )}
+
+
                 </div>
             </div>
         </>

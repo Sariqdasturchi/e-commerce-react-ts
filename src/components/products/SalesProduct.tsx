@@ -142,7 +142,7 @@ const TodayProductCard: React.FC = () => {
                         <div className="flex justify-center items-center gap-4">
                             {
                                 !showButton && (
-                                    <button onClick={handleShowButton} className="w-[159px] h-[56px] bg-[#DB4444] rounded-lg text-white cursor-pointer">Veiw All</button>
+                                    <button onClick={handleShowButton} className="w-[159px] h-[56px] bg-[#DB4444] rounded-lg text-white cursor-pointer hover:bg-transparent hover:border border-[#DB4444] hover:text-[#DB4444] transition-all duration-300">Veiw All</button>
                                 )
                             }
                         </div>

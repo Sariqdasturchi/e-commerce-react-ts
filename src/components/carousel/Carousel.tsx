@@ -7,7 +7,6 @@ import img from "../../assets/carusel.jpg"
 import img2 from "../../assets/iphone.jpg"
 import img3 from "../../assets/iphone2.png"
 
-// import { Card, CardContent } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
