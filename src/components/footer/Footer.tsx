@@ -1,8 +1,13 @@
 import { IoSend } from "react-icons/io5";
-import qrCode from "../../assets/qrcode.png"; // misol uchun
-// agar googleplay.png import qilishni xohlasang, shunday qil:
+import qrCode from "../../assets/qrcode.png";
 import googlePlay from "../../assets/googleplay.png";
 import apple from '../../assets/apple.png'
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { CiLinkedin } from "react-icons/ci";
+
 
 export default function Footer() {
     return (
@@ -92,7 +97,7 @@ export default function Footer() {
                             className="w-20 h-20"
                         />
                         <div className="flex flex-col gap-2">
-                            <button className="w-[190px] h-[56px] flex items-center gap-2 border border-gray-300 rounded-lg px-3 cursor-pointer">
+                            <button className="w-[190px] h-[50px] flex items-center gap-2 border border-gray-300 rounded-lg px-3 cursor-pointer">
                                 <img
                                     src={googlePlay}
                                     alt="Google Play logo"
@@ -103,7 +108,7 @@ export default function Footer() {
                                     <h3 className="text-sm font-semibold">Google Play</h3>
                                 </div>
                             </button>
-                            <button className="w-[190px] h-[56px] flex items-center gap-2 border border-gray-300 rounded-lg px-3 cursor-pointer">
+                            <button className="w-[190px] h-[50px] flex items-center gap-2 border border-gray-300 rounded-lg px-3 cursor-pointer">
                                 <img
                                     src={apple}
                                     alt="Google Play logo"
@@ -115,6 +120,14 @@ export default function Footer() {
                                 </div>
                             </button>
                         </div>
+                    </div>
+                    <div className="flex justify-around items-center gap-5">
+                        <FaFacebook />
+                        <FaInstagram />
+                        <FaTwitter />
+                        <FaTelegram />
+                        <CiLinkedin />
+
                     </div>
                 </div>
             </div>
